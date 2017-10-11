@@ -4,7 +4,9 @@
 " Latest Revision: 10 Oct 2017
 " Filenames: *.ys
 
-if exist("b:current_syntax")
+if version < 600
+    syntax clear
+elseif exist("b:current_syntax")
     finish
 endif
 
