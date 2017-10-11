@@ -61,9 +61,13 @@ if version >= 508 || !exists("did_dis_syntax_inits")
   HiLink y86Todo                    Todo
   HiLink y86Hex                     Constant
   HiLink y86Literal                 Constant
-  HiLink y86Registers               Identifier
+  HiLink y86Registers               Type
   HiLink y86BasicInstructions       Statement
+  HiLink y86MoveInstructions        Statement
   HiLink y86BranchInstructions      Statement
+  HiLink y86OperationInstructions   Statement
+  HiLink y86TransferInstructions    Statement
+  HiLink y86StackInstructions       Statement
   HiLink y86Label                   PreProc
   HiLink y86AssemblerDirectives     PreProc
   " HiLink disHexDump     Identifier
