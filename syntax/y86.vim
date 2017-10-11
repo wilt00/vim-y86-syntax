@@ -28,8 +28,8 @@ syn keyword y86AssemblerDirectives     .pos .align .long .quad
 syn keyword y86Registers   %eax %ecx %edx %ebx %esi %edi %esp %ebp
 
 syn match y86Label "^.*:"
-syn match y86Hex "0x[0-9]*"
-syn match y86Literal "\$[0-9]*"
+syn match y86Hex "0x-\=[0-9]*"      " Match '0x', followed by 0 or 1 '-' characters, followed by any number of digits
+syn match y86Literal "\$-\=[0-9]*"
 
 let b:current_syntax = "y86"
 
