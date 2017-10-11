@@ -13,8 +13,8 @@ endif
 let s:cpo_save = &cpo
 set cpo&vim
 
-syn keyword y86Todo contained   TODO FIXME XXX NOTE
-syn match y86Comment            "#.*$" contains y86Todo
+syn keyword y86Todo containedin=y86Comment contained    TODO FIXME XXX NOTE
+syn match y86Comment contains=y86Todo                   "#.*$" 
 
 syn keyword y86BasicInstructions       halt nop
 syn keyword y86MoveInstructions        rrmovl irmovl rmmovl mrmovl
