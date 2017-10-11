@@ -49,28 +49,22 @@ if version >= 508 || !exists("did_dis_syntax_inits")
     command -nargs=+ HiLink hi def link <args>
   endif
 
-  " The default methods for highlighting.  Can be overridden later
+  " Constant: String, Character, Number, Boolean, Float
+  " Identifier: Function
+  " Statement: Conditional, Repeat, Label, Operator, Keyword, Exception
+  " PreProc: Include, Define, Macro, PreCondit
+  " Type: StorageClass, Structure, Typedef
+  " Special: SpecialChar, Tag, Delimiter, SpecialComment, Debug
+
   " Comment
   HiLink y86Comment     Comment
-  " Constant: String, Character, Number, Boolean, Float
   HiLink y86Hex         Number
   HiLink y86Literal     Number
-  " HiLink disString      String
-  " Identifier: Function
   " HiLink disHexDump     Identifier
+  HiLink y86Registers Identifier
   HiLink y86BasicInstructions Identifier
-  " Statement: Conditional, Repeat, Label, Operator, Keyword, Exception
-  " HiLink disStatement	Statement
-  HiLink y86Label       Label
-  " PreProc: Include, Define, Macro, PreCondit
-  " HiLink disData        Define
-  " HiLink disMacro       Macro
-  " Type: StorageClass, Structure, Typedef
-  HiLink y86Registers   StorageClass
+  HiLink y86Label       PreProc
   " HiLink disTitle       Typedef
-  " Special: SpecialChar, Tag, Delimiter, SpecialComment, Debug
-  " HiLink disSpecial     SpecialChar
-  " HiLink disSection     Special
   " Underlined
   " Ignore
   " Error
