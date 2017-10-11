@@ -10,6 +10,9 @@ elseif exist("b:current_syntax")
     finish
 endif
 
+let s:cpo_save = &cpo
+set cpo&vim
+
 syn keyword y86Todo contained   TODO FIXME XXX NOTE
 syn match y86Comment            "#.*$" contains y86Todo
 
@@ -77,3 +80,7 @@ if version >= 508 || !exists("did_dis_syntax_inits")
 
   delcommand HiLink
 endif
+
+let &cpo = s:cpo_save
+unlet s:cpo_save
+
