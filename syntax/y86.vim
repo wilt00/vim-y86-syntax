@@ -57,21 +57,21 @@ if version >= 508 || !exists("did_dis_syntax_inits")
   " Type: StorageClass, Structure, Typedef
   " Special: SpecialChar, Tag, Delimiter, SpecialComment, Debug
 
-  " Comment
-  HiLink y86Comment     Comment
-  HiLink y86Hex         Number
-  HiLink y86Literal     Number
+  HiLink y86Comment                 Comment
+  HiLink y86Todo                    Todo
+  HiLink y86Hex                     Constant
+  HiLink y86Literal                 Constant
+  HiLink y86Registers               Identifier
+  HiLink y86BasicInstructions       Statement
+  HiLink y86BranchInstructions      Statement
+  HiLink y86Label                   PreProc
+  HiLink y86AssemblerDirectives     PreProc
   " HiLink disHexDump     Identifier
-  HiLink y86Registers Identifier
-  HiLink y86BasicInstructions Identifier
-  HiLink y86Label       PreProc
   " HiLink disTitle       Typedef
   " Underlined
   " Ignore
   " Error
-  HiLink y86Error       Error
   " Todo
-  HiLink y86Todo        Todo
 
   delcommand HiLink
 endif
