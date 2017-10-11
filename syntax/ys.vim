@@ -29,5 +29,8 @@ syn match y86Literal "\$[0-9]*"
 let b:current_syntax = "y86"
 hi def link y86Todo     Todo
 hi def link y86Comment  Comment
+hi def link y86Hex      Constant
+hi def link y86Literal  Constant
+hi def link y86BasicInstructions    Identifier
 
 
