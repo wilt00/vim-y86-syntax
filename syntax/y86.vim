@@ -13,6 +13,7 @@ endif
 let s:cpo_save = &cpo
 set cpo&vim
 
+syn region y86Comment start="#" end="$" contains=y86Todo
 syn keyword y86Todo containedin=y86Comment contained    TODO FIXME XXX NOTE
 syn match y86Comment contains=y86Todo                   "#.*$" 
 
