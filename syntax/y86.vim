@@ -26,7 +26,7 @@ syn keyword y86AssemblerDirectives     .pos .align .long .quad
 
 syn keyword y86Registers   %eax %ecx %edx %ebx %esi %edi %esp %ebp
 
-syn match y86Label "^.*:"
+syn match y86Label "^\..*:"
 syn match y86Hex "0x[0-9]*"
 syn match y86Literal "\$[0-9]*"
 
