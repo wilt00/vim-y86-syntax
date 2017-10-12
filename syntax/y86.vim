@@ -18,19 +18,19 @@ syn keyword y86Todo containedin=y86Comment contained    TODO FIXME XXX NOTE
 syn match y86Comment contains=y86Todo                   "#.*$" 
 
 syn keyword y86BasicInstructions       halt nop
-syn keyword y86MoveInstructions        rrmovl irmovl rmmovl mrmovl
-syn keyword y86OperationInstructions   addl subl andl xorl
+syn match y86MoveInstructions          "rrmov\(l\|q\)\|irmov\(l\|q\)\|rmmov\(l\|q\)\|mrmov\(l\|q\)"
+syn match y86OperationInstructions     "add\(l\|q\)\|sub\(l\|q\)\|and\(l\|q\)\|xor\(l\|q\),"
 syn keyword y86BranchInstructions      jmp jle jl je jne jge jg
 syn keyword y86TransferInstructions    cmovle cmovl cmove cmovne cmovge cmovg
-syn keyword y86StackInstructions       call ret pushl popl
+syn keyword y86StackInstructions       call ret 
+syn match y86StackInstructions         "push\(l\|q\)\|pop\(l\|q\)"
 syn keyword y86AssemblerDirectives     .pos .align .long .quad
+syn match y86MemoryAccession "(\|)"
 
-syn keyword y86Registers   %eax %ecx %edx %ebx %esi %edi %esp %ebp
-syn keyword y86Registers   %rax %rcx %rdx %rbx %rsi %rdi %rsp %rbp
 syn match y86Registers      "%\(r\|e\)\([a-d]x\|[sd]i\|[sb]p\)"
 
 syn match y86Label "^.*:" containedin=ALLBUT,y86Comment
-syn match y86Hex "0x-\=[0-9]*"      " Match '0x', followed by 0 or 1 '-' characters, followed by any number of digits
+syn match y86Hex "0x-\=[0-9,a-f,A-F]*"      " Match '0x', followed by 0 or 1 '-' characters, followed by any number of digits
 syn match y86Literal "\$-\=[0-9]*"
 
 let b:current_syntax = "y86"
@@ -70,6 +70,7 @@ if version >= 508 || !exists("did_dis_syntax_inits")
   HiLink y86OperationInstructions   Statement
   HiLink y86TransferInstructions    Statement
   HiLink y86StackInstructions       Statement
+  HiLink y86MemoryAccession         PreProc
   HiLink y86Label                   PreProc
   HiLink y86AssemblerDirectives     PreProc
   " HiLink disHexDump     Identifier
