@@ -35,11 +35,6 @@ syn match y86Literal "\$-\=[0-9]*"
 
 let b:current_syntax = "y86"
 
-" hi def link y86Todo     Todo
-" hi def link y86Comment  Comment
-" hi def link y86Hex      Constant
-" hi def link y86Literal  Constant
-" hi def link y86BasicInstructions    Identifier
 
 " Define the default highlighting.
 " For version 5.7 and earlier: only when not done already
@@ -47,9 +42,9 @@ let b:current_syntax = "y86"
 if version >= 508 || !exists("did_dis_syntax_inits")
   if version < 508
     let did_dis_syntax_inits = 1
-    command -nargs=+ HiLink hi link <args>
+    command -nargs=+ HiLink highlight link <args>
   else
-    command -nargs=+ HiLink hi def link <args>
+    command -nargs=+ HiLink highlight def link <args>
   endif
 
   " Constant: String, Character, Number, Boolean, Float
