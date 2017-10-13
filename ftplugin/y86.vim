@@ -16,7 +16,7 @@ let s:cpo_save = &cpo
 set cpo-=y86
 
 setlocal comments="#"           " Comma-separated list of strings that can start a comment line
-"setlocal commentstring="#%s"   " For enclosed comments e.g. /**/.
+setlocal commentstring="#%s"    " For enclosed comments e.g. /**/.
                                 " Currently only used for folding
 setlocal iskeyword+=%           " Treat % character as part of a word for the purposes of navigation
 
