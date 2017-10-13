@@ -28,6 +28,7 @@ syn keyword y86AssemblerDirectives     .pos .align .long .quad
 syn match y86MemoryAccession "(\|)"
 
 syn match y86Registers      "%\(r\|e\)\([a-d]x\|[sd]i\|[sb]p\)"
+syn match y86Registers      "%r\([8-9]\|1[0-5]\)"
 
 syn match y86Label "^[^#]*:" containedin=ALLBUT,y86Comment
 syn match y86Hex "0x-\=[0-9,a-f,A-F]*"      " Match '0x', followed by 0 or 1 '-' characters, followed by any number of digits
