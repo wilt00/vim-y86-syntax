@@ -15,9 +15,17 @@ let b:did_ftplugin = 1
 let s:cpo_save = &cpo
 set cpo-=y86
 
-setlocal comments=b:#           " Comma-separated list of strings that can start a comment line
-setlocal commentstring=#\ %s    " For enclosed comments e.g. /**/.
+" See :h comments and :h commentstring for more info
+
+setlocal comments=b:#,s1:/*,mb:*,ex:*/      
+" Comma-separated list of strings that can start a comment line
+
+setlocal commentstring=#\ %s,   " For enclosed comments e.g. /**/.
                                 " Currently only used for folding
+
+" /*%s*/ is a valid comment, but I prefer autocommenting plugins
+" to use #, and they all look at commentstring
+
 setlocal iskeyword+=%           " Treat % character as part of a word for the purposes of navigation
 
 let &cpo = s:cpo_save
