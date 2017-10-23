@@ -33,8 +33,9 @@ syn match y86Registers      "%\(r\|e\)\([a-d]x\|[sd]i\|[sb]p\)"  " Match %, then
 syn match y86Registers      "%r\([8-9]\|1[0-5]\)"
 
 syn match y86Label "^[^#]*:" containedin=ALLBUT,y86Comment  " Any number of non-'#' characters at the beginning of a line, followed by ':'
-syn match y86Hex "0x-\=[0-9,a-f,A-F]*"      " Match '0x', followed by 0 or 1 '-' characters, followed by any number of hex digits
 syn match y86Literal "\$-\=[0-9]*"          " Match '$', followed by 0 or 1 '-' characters, followed by any number of decimal digits
+syn match y86Literal "\$-\=0x[0-9,a-f,A-F]*"
+syn match y86Hex "0x-\=[0-9,a-f,A-F]*"      " Match '0x', followed by 0 or 1 '-' characters, followed by any number of hex digits
 
 let b:current_syntax = "y86"
 
