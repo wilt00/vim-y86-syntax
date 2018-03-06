@@ -18,6 +18,10 @@ syn region y86Comment start="/\*" end="\*/" contains=y86Todo
 syn keyword y86Todo containedin=y86Comment contained    TODO FIXME XXX NOTE
 syn match y86Comment contains=y86Todo                   "#.*$"  " Match #, then any number of characters, then the end of the line
 
+syn match y86Divider +|+
+syn match y86InstructionAddrEmpty "^0x[0-9a-f]*:\s*|" containedin=ALLBUT,y86Comment
+syn match y86InstructionAddr "^0x[0-9a-f]*:" containedin=ALLBUT,y86Comment
+
 syn keyword y86BasicInstructions       halt nop
 syn match y86MoveInstructions          "rrmov\(l\|q\)\|irmov\(l\|q\)\|rmmov\(l\|q\)\|mrmov\(l\|q\)"
 syn match y86OperationInstructions     "add\(l\|q\)\|sub\(l\|q\)\|and\(l\|q\)\|xor\(l\|q\)"
@@ -32,7 +36,7 @@ syn match y86MemoryAccession "(\|)"
 syn match y86Registers      "%\(r\|e\)\([a-d]x\|[sd]i\|[sb]p\)"  " Match %, then 'r' or 'e', then (a through d)x or (s or d)i or (s or b)p
 syn match y86Registers      "%r\([8-9]\|1[0-5]\)"
 
-syn match y86Label "^[^#]*:" containedin=ALLBUT,y86Comment  " Any number of non-'#' characters at the beginning of a line, followed by ':'
+syn match y86Label "^[^#]*:" containedin=ALLBUT,y86Comment       " Any number of non-'#' characters at the beginning of a line, followed by ':'
 syn match y86Literal "\$-\=[0-9]*"          " Match '$', followed by 0 or 1 '-' characters, followed by any number of decimal digits
 syn match y86Literal "\$-\=0x[0-9,a-f,A-F]*"
 syn match y86Hex "0x-\=[0-9,a-f,A-F]*"      " Match '0x', followed by 0 or 1 '-' characters, followed by any number of hex digits
